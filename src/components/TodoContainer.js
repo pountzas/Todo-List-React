@@ -18,3 +18,13 @@ class TodoContainer extends React.Component {
       }
     ]
   };
+
+  render() {
+    return (
+      <div>
+        <Header />
+        <TodosList todos={this.state.todos} handleChangeProps={this.handleChange} />
+      </div>
+    );
+  }
+}
