@@ -64,7 +64,7 @@ class TodoItem extends React.Component {
           className={styles.textInput}
           value={title}
           onChange={event => 
-            this.props.setUpdateProps(event.target.value, id)
+            this.props.setUpdate(event.target.value, id)
           }
           onKeyDown={this.handleUpdatedDone}
         />
