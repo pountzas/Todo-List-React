@@ -66,6 +66,7 @@ class TodoItem extends React.Component {
           onChange={event => 
             this.props.setUpdateProps(event.target.value, id)
           }
+          onKeyDown={this.handleUpdatedDone}
         />
       </li>
     )
