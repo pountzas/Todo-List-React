@@ -1,9 +1,14 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, Fragment } from "react"
+import { Route, Switch } from "react-router-dom"
+import { v4 as uuidv4 } from "uuid"
+
 import Header from "./Header"
+import Navbar from "./Navbar"
 import InputTodo from "./InputTodo"
 import TodosList from "./TodosList"
-import { v4 as uuidv4 } from "uuid"
-import { Route, Switch } from "react-router-dom"
+import About from "../pages/About"
+import NotMatch from "../pages/NotMatch"
+
 
 const TodoContainer = () => {
   const [todos, setTodos] = useState(getInitialTodos())
@@ -64,20 +69,30 @@ const TodoContainer = () => {
   }
 
   return (
-    <Route path="/">
-      <div className="container">
-        <div className="inner">
-          <Header />
-          <InputTodo addTodoProps={addTodoItem} />
-          <TodosList
-            todos={todos}
-            handleChangeProps={handleChange}
-            deleteTodoProps={delTodo}
-            setUpdate={setUpdate}
-          />
-        </div>
-      </div>
-    </Route>
+    <Fragment>
+      <Navbar />
+      <Switch>
+        <Route path="/">
+          <div className="container">
+            <div className="inner">
+              <Header />
+              <InputTodo addTodoProps={addTodoItem} />
+              <TodosList
+                todos={todos}
+                handleChangeProps={handleChange}
+                deleteTodoProps={delTodo}
+                setUpdate={setUpdate}
+              />
+            </div>
+          </div>
+        </Route>
+        <Route path="/about">
+
+        </Route>
+        <Route path="*">
+        </Route>
+      </Switch>
+    </Fragment>
   )
 }
 
