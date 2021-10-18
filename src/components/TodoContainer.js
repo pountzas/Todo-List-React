@@ -72,7 +72,7 @@ const TodoContainer = () => {
     <Fragment>
       <Navbar />
       <Switch>
-        <Route path="/">
+        <Route path="/" exact >
           <div className="container">
             <div className="inner">
               <Header />
@@ -86,7 +86,7 @@ const TodoContainer = () => {
             </div>
           </div>
         </Route>
-        <Route path="/about">
+        <Route path="/about" component={About} >
           <About />
         </Route>
         <Route path="*">
